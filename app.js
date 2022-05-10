@@ -12,21 +12,12 @@ var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" 
 var app = express();
 
 //Set up mongoose connection
-<<<<<<< HEAD
 // var mongoose = require('mongoose');
 // // todo before publishing to prod change to env variable
 // var mongoDB = 'add';
 // mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-=======
-var mongoose = require('mongoose');
-// todo before publishing to prod change to env variable
-var mongoDB = 'add';
-mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
->>>>>>> 88464cabc8d11edbc4b69e2fbff9b78ac2ab1934
 
 
 // view engine setup
