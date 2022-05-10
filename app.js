@@ -14,7 +14,7 @@ var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
 // todo before publishing to prod change to env variable
-var mongoDB = 'mongodb+srv://sage:Edd7f!tz24@cluster0.q780b.mongodb.net/movie_db?retryWrites=true&w=majority';
+var mongoDB = 'add';
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
