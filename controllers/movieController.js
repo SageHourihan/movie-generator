@@ -1,13 +1,13 @@
 var Movie = require('../models/movie')
 
 exports.index = function(req, res) {
-    res.render('index', {title: 'Movie Generator'});
+    res.render('layout', {title: 'Movie Generator'});
 };
 
 
 // Display list of all Movies.
 exports.movie_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Movie list');
+    res.render('index', {title: 'Movie Generator'});
 };
 
 // Display detail page for a specific Movie.
