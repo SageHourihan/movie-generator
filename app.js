@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config()
+
+console.log(process.env)
 
 
 var indexRouter = require('./routes/index');
@@ -11,13 +14,13 @@ var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" 
 
 var app = express();
 
-//Set up mongoose connection
-// var mongoose = require('mongoose');
-// // todo before publishing to prod change to env variable
-// var mongoDB = 'add';
-// mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// Set up mongoose connection
+var mongoose = require('mongoose');
+// todo before publishing to prod change to env variable
+var mongoDB = process.env.MONGO_DB_URI;
+mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 // view engine setup

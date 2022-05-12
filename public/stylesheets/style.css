@@ -29,3 +29,16 @@ a {
 .navbar ul li {
   padding: 10px 0 0 0;
 }
+
+.img {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transform: translate(-40%, -40%);
+  border-radius: 20px;
+  margin: 100px;
+  overflow: hidden;
+  cursor: pointer;
+}

@@ -1,14 +1,28 @@
 var Movie = require('../models/movie')
+var async = require('async');
+const { body,validationResult } = require("express-validator");
 
 exports.index = function(req, res) {
-    res.render('layout', {title: 'Movie Generator'});
+    res.render('index', {title: 'Movie Generator'});
 };
 
 
 // Display list of all Movies.
-exports.movie_list = function(req, res) {
-    res.render('index', {title: 'Movie Generator'});
-};
+// exports.movie_list = function(req, res) {
+//     res.render('movies_list', {title: 'Movie Generator'});
+// };
+exports.movie_list = function(req, res, next) {
+
+    Movie.find()
+      .sort([['title', 'ascending']])
+      .exec(function (err, list_movies) {
+        if (err) { return next(err); }
+        //Successful, so render
+        res.render('movies_list', { title: 'Movie List', movie_list: list_movies });
+      });
+
+  };
+
 
 // Display detail page for a specific Movie.
 exports.movie_detail = function(req, res) {

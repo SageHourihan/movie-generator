@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 // naming the schema
 var MovieSchema = new Schema (
     {
-    title: {type: String, maxlength: 100},
+    title: {type: String},
     watched: {type: Boolean},
     }
 );
