@@ -41,6 +41,7 @@ a {
   margin: 100px;
   overflow: hidden;
   cursor: pointer;
+  border: 2px solid pink;
 }
 
 h1{

@@ -18,7 +18,6 @@ exports.movie_list = function(req, res, next) {
 
   };
 
-
 // Display detail page for a specific Movie.
 exports.movie_detail = function(req, res) {
     res.send('NOT IMPLEMENTED: Movie detail: ' + req.params.id);
@@ -52,4 +51,10 @@ exports.movie_update_get = function(req, res) {
 // Handle Movie update on POST.
 exports.movie_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: Movie update POST');
+};
+
+// TODO: remove this
+// test for script
+exports.test = function() {
+    console.log('works');
 };
