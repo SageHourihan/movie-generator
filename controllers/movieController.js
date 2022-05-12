@@ -6,11 +6,6 @@ exports.index = function(req, res) {
     res.render('index', {title: 'Movie Generator'});
 };
 
-
-// Display list of all Movies.
-// exports.movie_list = function(req, res) {
-//     res.render('movies_list', {title: 'Movie Generator'});
-// };
 exports.movie_list = function(req, res, next) {
 
     Movie.find()

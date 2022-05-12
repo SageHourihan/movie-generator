@@ -42,3 +42,15 @@ a {
   overflow: hidden;
   cursor: pointer;
 }
+
+h1{
+  text-align: center;
+  padding-top: 25px;
+}
+.mlist {
+  position: absolute;
+  left:50%;
+  transform: translateX(-70%);
+  padding-top: 20px;
+  list-style: none;
+}
