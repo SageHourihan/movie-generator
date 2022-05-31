@@ -4,10 +4,12 @@ const movieArt = require('movie-art')
 const { body, validationResult } = require("express-validator");
 const res = require('express/lib/response');
 
+// TODO: add button to randomly select
 exports.index = function (req, res) {
     res.render('index', { title: 'Movie Generator' });
 };
 
+// TODO: filter based on watched. only diplay if watched = false
 exports.movie_list = function (req, res, next) {
 
     Movie.find()
@@ -19,11 +21,6 @@ exports.movie_list = function (req, res, next) {
         });
 
 };
-
-// Display detail page for a specific Movie.
-// exports.movie_detail = function (req, res) {
-//     res.send('NOT IMPLEMENTED: Movie detail: ' + req.params.id);
-// };
 
 exports.movie_detail = function (req, res, next) {
     Movie.findById(req.params.id)
@@ -43,7 +40,7 @@ exports.movie_detail = function (req, res, next) {
         });
 };
 
-
+// TODO: creat add movie form
 // Display Movie create form on GET.
 exports.movie_create_get = function (req, res) {
     res.send('NOT IMPLEMENTED: Movie create GET');
