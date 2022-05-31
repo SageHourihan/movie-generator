@@ -73,9 +73,3 @@ exports.movie_update_get = function (req, res) {
 exports.movie_update_post = function (req, res) {
     res.send('NOT IMPLEMENTED: Movie update POST');
 };
-
-// TODO: remove this
-// test for script
-exports.test = function () {
-    console.log('works');
-};
