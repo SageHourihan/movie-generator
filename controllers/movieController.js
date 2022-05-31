@@ -40,12 +40,12 @@ exports.movie_detail = function (req, res, next) {
         });
 };
 
-// TODO: creat add movie form
+// TODO: add stlying to movie form
 // Display Movie create form on GET.
-exports.movie_create_get = function (req, res) {
-    res.send('NOT IMPLEMENTED: Movie create GET');
+exports.movie_create_get = function (req, res, next) {
+    res.render('movie_form', { title: 'Add Movie' });
 };
-
+// TODO: Handle post of movie. unwatched = default
 // Handle Movie create on POST.
 exports.movie_create_post = function (req, res) {
     res.send('NOT IMPLEMENTED: Movie create POST');
