@@ -25,12 +25,20 @@ exports.movie_list = function (req, res, next) {
 //     res.send('NOT IMPLEMENTED: Movie detail: ' + req.params.id);
 // };
 
-exports.movie_detail = function () {
-    // movieArt('What about bob', (error, response) => {
-    //     console.log(response)
-    //     //=> http://path/to/oceans_eleven.jpg
-    // })
-    // TODO: copy book instance to get the title in the movieArt library
+exports.movie_detail = function (req, res, next) {
+    Movie.findById(req.params.id)
+        .exec(function (err, movie) {
+            if (err) { return next(err); }
+            if (movie == null) { //no results.
+                var err = new Error('Movie not found');
+                err.status = 404;
+                return next(err);
+            }
+            // successful, so render.
+            movieArt(movie.title, (error, response) => {
+                console.log(movie.title + ' ' + response);
+            });
+        });
 };
 
 
