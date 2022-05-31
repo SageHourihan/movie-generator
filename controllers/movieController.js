@@ -35,9 +35,10 @@ exports.movie_detail = function (req, res, next) {
                 err.status = 404;
                 return next(err);
             }
-            // successful, so render.
+            //successful, so render.
             movieArt(movie.title, (error, response) => {
                 console.log(movie.title + ' ' + response);
+                res.redirect(response);
             });
         });
 };
