@@ -13,12 +13,6 @@ body {
   position: absolute;
 }
 
-a {
-  text-decoration: none;
-  color: #FFCF92;
-  padding: 10px;
-}
-
 .navbar ul {
   display: flex;
   float: right;
@@ -54,4 +48,13 @@ h1{
   transform: translateX(-70%);
   padding-top: 20px;
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #FFCF92;
+  padding: 10px;
+}
+.mlist li {
+  padding:5px;
 }

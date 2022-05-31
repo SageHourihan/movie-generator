@@ -27,6 +27,7 @@ exports.movie_list = function (req, res, next) {
 
 exports.movie_detail = function (req, res, next) {
     Movie.findById(req.params.id)
+        .populate('title')
         .exec(function (err, movie) {
             if (err) { return next(err); }
             if (movie == null) { //no results.
