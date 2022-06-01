@@ -14,6 +14,7 @@ exports.movie_list = function (req, res, next) {
 
     Movie.find()
         .sort([['title', 'ascending']])
+        .find({ watched: false })
         .exec(function (err, list_movies) {
             if (err) { return next(err); }
             //Successful, so render
