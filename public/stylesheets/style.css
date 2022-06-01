@@ -58,3 +58,33 @@ a {
 .mlist li {
   padding:5px;
 }
+
+form{
+  position: absolute;
+  left:50%;
+  transform: translateX(-90%);
+  margin-top: 50px;
+}
+
+input {
+  width: 100%;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-42.5%);
+  width: 100%;
+  background-color: #FFCF92;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

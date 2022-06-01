@@ -40,7 +40,6 @@ exports.movie_detail = function (req, res, next) {
         });
 };
 
-// TODO: add stlying to movie form
 // Display Movie create form on GET.
 exports.movie_create_get = function (req, res, next) {
     res.render('movie_form', { title: 'Add Movie' });
