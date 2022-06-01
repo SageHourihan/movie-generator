@@ -44,11 +44,48 @@ exports.movie_detail = function (req, res, next) {
 exports.movie_create_get = function (req, res, next) {
     res.render('movie_form', { title: 'Add Movie' });
 };
-// TODO: Handle post of movie. unwatched = default
-// Handle Movie create on POST.
-exports.movie_create_post = function (req, res) {
-    res.send('NOT IMPLEMENTED: Movie create POST');
-};
+// TODO: make 'watched: false' default
+// Handle movie create on POST.
+exports.movie_create_post = [
+
+    // Validate and sanitize the name field.
+    body('name', 'Movie title required').trim().isLength({ min: 1 }).escape(),
+    // Process request after validation and sanitization.
+    (req, res, next) => {
+
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+        // Create a movie object with escaped and trimmed data.
+        var movie = new Movie(
+            { title: req.body.name }
+        );
+        if (!errors.isEmpty()) {
+            // There are errors. Render the form again with sanitized values/error messages.
+            res.render('movie_form', { title: 'Create Movie', movie: movie, errors: errors.array() });
+            return;
+        }
+        else {
+            // Data from form is valid.
+            // Check if Movie with same title already exists.
+            Movie.findOne({ 'title': req.body.name })
+                .exec(function (err, found_movie) {
+                    if (err) { return next(err); }
+                    if (found_movie) {
+                        // Movie exists, redirect to its detail page.
+                        res.redirect(found_movie.url);
+                    }
+                    else {
+
+                        movie.save(function (err) {
+                            if (err) { return next(err); }
+                            // Movie saved. Redirect to movie detail page.
+                            res.redirect(movie.url);
+                        });
+                    }
+                });
+        }
+    }
+];
 
 // Display Movie delete form on GET.
 exports.movie_delete_get = function (req, res) {
