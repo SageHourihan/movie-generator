@@ -9,7 +9,7 @@ exports.index = function (req, res) {
     res.render('index', { title: 'Movie Generator' });
 };
 
-// TODO: filter based on watched. only diplay if watched = false
+// TODO: version 2: add filters such as: all, watched, unwatched.
 exports.movie_list = function (req, res, next) {
 
     Movie.find()
