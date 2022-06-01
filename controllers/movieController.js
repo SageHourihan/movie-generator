@@ -44,7 +44,6 @@ exports.movie_detail = function (req, res, next) {
 exports.movie_create_get = function (req, res, next) {
     res.render('movie_form', { title: 'Add Movie' });
 };
-// TODO: make 'watched: false' default
 // Handle movie create on POST.
 exports.movie_create_post = [
 
@@ -55,9 +54,13 @@ exports.movie_create_post = [
 
         // Extract the validation errors from a request.
         const errors = validationResult(req);
+
         // Create a movie object with escaped and trimmed data.
         var movie = new Movie(
-            { title: req.body.name }
+            {
+                title: req.body.name,
+                watched: false
+            }
         );
         if (!errors.isEmpty()) {
             // There are errors. Render the form again with sanitized values/error messages.
