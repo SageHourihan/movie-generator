@@ -113,5 +113,13 @@ exports.movie_update_post = function (req, res) {
 
 // Handle Movie random on GET.
 exports.movie_random = function (req, res) {
-    res.send('NOT IMPLEMENTED: Random Movie');
+    // res.send('NOT IMPLEMENTED: Movie random');
+    Movie.find()
+        .sort([['title', 'ascending']])
+        .find({ watched: false })
+        .exec(function (err, list_movies) {
+            if (err) { return next(err); }
+            //Successful, so render
+            console.log(list_movies)
+        });
 }
