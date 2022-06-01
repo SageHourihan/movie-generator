@@ -2,4 +2,10 @@ extends layout
 
 block content
 
-  a(class='img')(href='/catalog/test')
+  form(metod='GET', action='/catalog/random')
+    button.btn-random(type=submit) Random Movie
+
+  if errors
+    ul
+    for error in errors
+      li!= error.msg

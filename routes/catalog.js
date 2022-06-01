@@ -32,4 +32,7 @@ router.get('/movie/:id', movie_controller.movie_detail);
 // GET request for list of all Movies.
 router.get('/movies', movie_controller.movie_list);
 
+// GET request for random Movie.
+router.get('/random', movie_controller.movie_random);
+
 module.exports = router;

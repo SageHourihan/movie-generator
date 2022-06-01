@@ -110,3 +110,8 @@ exports.movie_update_get = function (req, res) {
 exports.movie_update_post = function (req, res) {
     res.send('NOT IMPLEMENTED: Movie update POST');
 };
+
+// Handle Movie random on GET.
+exports.movie_random = function (req, res) {
+    res.send('NOT IMPLEMENTED: Random Movie');
+}
