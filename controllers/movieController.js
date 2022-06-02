@@ -120,9 +120,15 @@ exports.movie_random = async function () {
 
     // returs to array
     const allValues = await cursor.toArray();
-    // console.log(Array.isArray(allValues));
-    // TODO: possibly need to clean up 'title' in array
-    console.log(allValues);
+    // console.log(allValues);
     let movieArrayLength = allValues.length;
-    console.log(movieArrayLength)
+    let n = Math.floor(Math.random() * movieArrayLength);
+    let title = JSON.stringify(allValues[n]);
+    // console.log(title);
 };
+
+
+// movieArt(movie.title, (error, response) => {
+//     console.log(movie.title + ' ' + response);
+//     res.redirect(response);
+// });
