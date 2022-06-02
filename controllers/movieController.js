@@ -114,14 +114,15 @@ exports.movie_update_post = function (req, res) {
 
 // Handle Movie random on GET.
 exports.movie_random = async function () {
-    //* working get title
+
+    // gets title
     const cursor = collection.find({ watched: false }).project({ _id: 0, __v: 0, watched: 0 });
-    // await cursor.forEach(doc => console.log(doc.title));
 
-
-    //*working array
+    // returs to array
     const allValues = await cursor.toArray();
-    console.log(Array.isArray(allValues));
+    // console.log(Array.isArray(allValues));
+    // TODO: possibly need to clean up 'title' in array
     console.log(allValues);
-
+    let movieArrayLength = allValues.length;
+    console.log(movieArrayLength)
 };
