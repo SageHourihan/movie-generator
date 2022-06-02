@@ -115,11 +115,27 @@ exports.movie_update_post = function (req, res) {
 exports.movie_random = function (req, res) {
     // res.send('NOT IMPLEMENTED: Movie random');
     Movie.find()
-        .sort([['title', 'ascending']])
+        .populate('title')
         .find({ watched: false })
         .exec(function (err, list_movies) {
             if (err) { return next(err); }
             //Successful, so render
-            console.log(list_movies)
+            console.log(list_movies);
         });
 }
+
+// Movie.findById(req.params.id)
+//         .populate('title')
+//         .exec(function (err, movie) {
+//             if (err) { return next(err); }
+//             if (movie == null) { //no results.
+//                 var err = new Error('Movie not found');
+//                 err.status = 404;
+//                 return next(err);
+//             }
+//             //successful, so render.
+//             movieArt(movie.title, (error, response) => {
+//                 console.log(movie.title + ' ' + response);
+//                 res.redirect(response);
+//             });
+//         });
