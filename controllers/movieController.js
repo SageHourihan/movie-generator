@@ -113,22 +113,22 @@ exports.movie_update_post = function (req, res) {
 };
 
 // Handle Movie random on GET.
-exports.movie_random = async function () {
+exports.movie_random = async function (req, res, next) {
 
-    // gets title
+    // gets title of movies not watched
     const cursor = collection.find({ watched: false }).project({ _id: 0, __v: 0, watched: 0 });
 
-    // returs to array
+    // puts json to array
     const allValues = await cursor.toArray();
-    // console.log(allValues);
+    // gets length of list
     let movieArrayLength = allValues.length;
+    // gets random number
     let n = Math.floor(Math.random() * movieArrayLength);
+    // turns array value to string
     let title = JSON.stringify(allValues[n]);
-    // console.log(title);
+    let mTitle = title.split('"');
+    // gets random movie art
+    movieArt(mTitle[3], (error, response) => {
+        res.redirect(response);
+    });
 };
-
-
-// movieArt(movie.title, (error, response) => {
-//     console.log(movie.title + ' ' + response);
-//     res.redirect(response);
-// });
