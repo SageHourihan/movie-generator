@@ -3,6 +3,7 @@ var async = require('async');
 const movieArt = require('movie-art')
 const { body, validationResult } = require("express-validator");
 const res = require('express/lib/response');
+const { collection } = require('../models/movie');
 
 // TODO: add button to randomly select
 exports.index = function (req, res) {
@@ -112,30 +113,9 @@ exports.movie_update_post = function (req, res) {
 };
 
 // Handle Movie random on GET.
-exports.movie_random = function (req, res) {
+exports.movie_random = async function () {
     // res.send('NOT IMPLEMENTED: Movie random');
-    Movie.find()
-        .populate('title')
-        .find({ watched: false })
-        .exec(function (err, list_movies) {
-            if (err) { return next(err); }
-            //Successful, so render
-            console.log(list_movies);
-        });
-}
+    const cursor = collection.find({ watched: false });
+    await cursor.forEach(doc => console.log(doc.title));
 
-// Movie.findById(req.params.id)
-//         .populate('title')
-//         .exec(function (err, movie) {
-//             if (err) { return next(err); }
-//             if (movie == null) { //no results.
-//                 var err = new Error('Movie not found');
-//                 err.status = 404;
-//                 return next(err);
-//             }
-//             //successful, so render.
-//             movieArt(movie.title, (error, response) => {
-//                 console.log(movie.title + ' ' + response);
-//                 res.redirect(response);
-//             });
-//         });
+};
