@@ -4,6 +4,7 @@ const movieArt = require('movie-art')
 const { body, validationResult } = require("express-validator");
 const res = require('express/lib/response');
 const { collection } = require('../models/movie');
+const { all } = require('express/lib/application');
 
 // TODO: add button to randomly select
 exports.index = function (req, res) {
@@ -115,7 +116,12 @@ exports.movie_update_post = function (req, res) {
 // Handle Movie random on GET.
 exports.movie_random = async function () {
     // res.send('NOT IMPLEMENTED: Movie random');
-    const cursor = collection.find({ watched: false });
-    await cursor.forEach(doc => console.log(doc.title));
+    // const cursor = collection.find({ watched: false });
+    // await cursor.forEach(doc => console.log(doc.title));
+
+    const cursor = collection.find({});
+    const allValues = await cursor.toArray();
+    // console.log(Array.isArray(allValues));
+    console.log(allValues[0]);
 
 };
