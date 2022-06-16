@@ -1,7 +1,7 @@
 {
   "name": "movie-generator",
   "version": "1.0.0",
-  "engines":{
+  "engines": {
     "node": "16.15.0"
   },
   "private": true,
@@ -21,6 +21,7 @@
     "mongoose": "^6.3.3",
     "morgan": "~1.9.1",
     "movie-art": "^1.0.7",
+    "open": "^8.4.0",
     "pug": "^3.0.2"
   }
 }

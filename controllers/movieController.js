@@ -4,6 +4,8 @@ const movieArt = require('movie-art')
 const { body, validationResult } = require("express-validator");
 const res = require('express/lib/response');
 const { collection } = require('../models/movie');
+const open = require('open');
+
 
 // TODO: add button to randomly select
 exports.index = function (req, res) {
@@ -129,6 +131,6 @@ exports.movie_random = async function (req, res, next) {
     let mTitle = title.split('"');
     // gets random movie art
     movieArt(mTitle[3], (error, response) => {
-        res.redirect(response);
+        open(response);
     });
 };
