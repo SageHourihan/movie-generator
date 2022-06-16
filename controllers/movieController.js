@@ -6,8 +6,6 @@ const res = require('express/lib/response');
 const { collection } = require('../models/movie');
 const open = require('open');
 
-
-// TODO: add button to randomly select
 exports.index = function (req, res) {
     res.render('index', { title: 'Movie Generator' });
 };
